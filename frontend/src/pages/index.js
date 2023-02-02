@@ -4,6 +4,7 @@ import { PRODUCT_QUERY } from "lib/query";
 import Product from "@/components/Products";
 import { Gallery } from "@/styles/Gallery";
 
+
 export default function Home() {
   const [results] = useQuery({ query: PRODUCT_QUERY });
   const { data, fetching, error } = results;

@@ -20,3 +20,24 @@
             }
         }
     `
+    export const GET_PRODUCT_QUERY=`
+        query getProduct($slug: String!){
+            products(filters:{slug: {eq:$slug}}){
+                data{
+                    attributes{
+                        price
+                        slug
+                        title
+                        Description
+                        image{
+                            data{
+                                attributes{
+                                    formats
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `;
