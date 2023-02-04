@@ -10,6 +10,7 @@ import {
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { useStateContext } from "lib/context";
 
+
 export default function ProductDetail() {
   const {qty,increaseQty,decreaseQty,onAdd} = useStateContext();
   console.log(qty);
