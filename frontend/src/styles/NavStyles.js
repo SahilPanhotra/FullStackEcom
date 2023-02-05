@@ -29,6 +29,7 @@ export const NavItems = styled.div`
     font-size: 1.5rem;
   }
   span {
+    margin-right:0.3rem;
     background: #ff2626;
     color: white;
     height: 1.2rem;

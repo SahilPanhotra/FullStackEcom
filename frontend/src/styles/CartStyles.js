@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
+const {motion} = require('framer-motion');
 
 export const CartWrapper=styled(motion.div)`
     position: fixed;
@@ -32,7 +32,7 @@ export const Card= styled(motion.div)`
     padding: 2rem;
     margin: 2rem 0;
     img{
-        width: 8rem;
+        width: 3.5rem;
     }
 `;
 
@@ -72,4 +72,8 @@ export const Checkout = styled(motion.div)`
         margin-top: 2rem;
         cursor: pointer;
     }
+`;
+
+export const Cards= styled(motion.div)`
+
 `;
