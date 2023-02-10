@@ -10,7 +10,7 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 export default function Nav() {
   const {showCart,setShowCart,totalQuantities}=useStateContext();
   const {user,error,isLoading}=useUser();
-  console.log(user);
+  // console.log(user["http://localhost:3000/stripe_customer_id"]);
   return (
     <NavStyles>
       <Link href={"/"}>Smack</Link>
