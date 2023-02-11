@@ -10,27 +10,36 @@ import {
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { useStateContext } from "lib/context";
 import { toast } from "react-hot-toast";
+import { useEffect } from "react";
 
 export default function ProductDetail() {
-  const { qty, increaseQty, decreaseQty, onAdd } = useStateContext();
-  console.log(qty);
+  const { qty, increaseQty, decreaseQty, onAdd, setQty } = useStateContext();
+  //reset Qty
+  useEffect(() => {
+    setQty(1);
+  },[]);
   const { query } = useRouter();
   const [results] = useQuery({
     query: GET_PRODUCT_QUERY,
     variables: { slug: query.slug },
   });
+  
 
   const { data, fetching, error } = results;
   if (fetching) return <h1>Loading...</h1>;
   if (error) return <p>Oh no {error.message}</p>;
   const { title, Description, image } = data.products.data[0].attributes;
 
+  
+
   //create a toast
   const notify = () => {
-    toast.success(`${title} Added to your Cart`,{duration:1500,
-    icon:"🛒"});
+    toast.success(`${title} Added to your Cart`, {
+      duration: 1500,
+      icon: "🛒",
+    });
   };
-  
+
   return (
     <DetailsStyle>
       <img src={image.data.attributes.formats.medium.url} alt={title} />
@@ -41,8 +50,7 @@ export default function ProductDetail() {
         <Quantity>
           <span>Quantity</span>
           <button>
-            <AiFillMinusCircle onClick={decreaseQty
-            } />
+            <AiFillMinusCircle onClick={decreaseQty} />
           </button>
           <p>{qty}</p>
           <button>

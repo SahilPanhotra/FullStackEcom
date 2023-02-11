@@ -4,7 +4,7 @@ import { Context } from "urql";
 const ShopContext = createContext();
 
 export const StateContext = ({ children }) => {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [totalQuantities, setTotalQuantities] = useState(0);
@@ -16,7 +16,7 @@ export const StateContext = ({ children }) => {
 
   const decreaseQty = () => {
     setQty((prevQty) => {
-      if (prevQty - 1 < 1) return 0;
+      if (prevQty - 1 < 1) return 1;
       return prevQty - 1;
     });
   };
@@ -70,7 +70,8 @@ export const StateContext = ({ children }) => {
         onAdd,
         onRemove,
         totalQuantities,
-        totalPrice
+        totalPrice,
+        setQty,
       }}
     >
       {children}
